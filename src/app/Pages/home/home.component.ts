@@ -25,7 +25,7 @@ export class HomeComponent {
   }
 
   getProduct():void{
-    this.Storeservice.getAllProducts(this.count,this.sort)
+    this.Storeservice.getAllProducts(this.count,this.sort, this.category)
     .subscribe((_product)=>{
       this.product = _product
     })
@@ -43,6 +43,7 @@ export class HomeComponent {
   onShowcategory(newcategory : string):void{
     console.log(newcategory)
     this.category = newcategory
+    this.getProduct()
   }
 
   onItemsCountChange(count:number):void {
